@@ -24,13 +24,33 @@ app.get('/assets/js/index.js', function(req, res) {
     res.sendFile(path.join(__dirname, 'assets/js/index.js'))
 });
 
-app.get('/db.json', function(req, res){
-    res.sendFile(path.join(__dirname, 'db.json'))
+app.get('/db2.json', function(req, res){
+    res.sendFile(path.join(__dirname, 'db2.json'))
 });
 
 app.get('/api/notes', function(req, res){
-    res.sendFile(path.join(__dirname, 'db.json'))
-})
+    res.sendFile(path.join(__dirname, 'db2.json'))
+});
+
+app.post('/api/notes', function(req, res){
+    var newNote = req.body;
+    console.log(newNote);
+    fs.readFile('db2.json', function(err, data){
+        var json = JSON.parse(data);
+        json.push(newNote);
+        fs.writeFile('db2.json', JSON.stringify(json), function(err){
+            if(err){
+                console.log(err)
+            }
+            else{
+                console.log('Note added!')
+            }
+        })
+    })
+    res.sendFile(path.join(__dirname, 'notes.html'))
+});
+
+
 
 app.listen(PORT, function(){
     console.log("App listening on PORT " + PORT);
