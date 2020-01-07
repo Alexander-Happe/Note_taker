@@ -3,7 +3,7 @@ var path = require('path');
 var fs = require('fs');
 
 var app = express();
-
+var PORT = process.env.PORT;
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -77,6 +77,6 @@ app.delete('/api/notes/:id', function(req, res){
     res.sendFile(path.join(__dirname, 'notes.html'))
 });
 
-//app.listen(PORT, function(){
-    //console.log("App listening on PORT " + PORT);
-//})
+app.listen(PORT, function(){
+    console.log("App listening on PORT " + PORT);
+})
