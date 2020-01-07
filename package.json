@@ -1,17 +1,25 @@
 {
-  "name": "note-taker",
+  "name": "Note_taker",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "application to save and delete notes.",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diverchild/Note_taker.git"
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Diverchild/Note_taker/issues"
+  },
+  "homepage": "https://github.com/Diverchild/Note_taker#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mysql": "^2.16.0",
     "path": "^0.12.7"
   }
 }
